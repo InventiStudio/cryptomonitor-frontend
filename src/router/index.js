@@ -10,9 +10,9 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'Monitor',
       component(resolve) {
-        require(['src/views/Home/Home'], resolve)
+        require(['src/views/Monitor/Monitor'], resolve)
       },
     },
   ],

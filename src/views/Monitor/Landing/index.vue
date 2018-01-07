@@ -1,6 +1,9 @@
 <template lang="pug">
   section.landing
-    h1.c-white CryptoMonitor
+    .container-fluid
+      .row
+        .col
+          h1.c-white CryptoMonitor
 </template>
 
 <script>
