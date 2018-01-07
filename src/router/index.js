@@ -12,7 +12,7 @@ export default new Router({
       path: '/',
       name: 'Home',
       component(resolve) {
-        require(['src/views/Home'], resolve)
+        require(['src/views/Home/Home'], resolve)
       },
     },
   ],

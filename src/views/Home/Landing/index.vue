@@ -1,12 +1,12 @@
 <template lang="pug">
-  main
+  section.landing
     h1.c-white CryptoMonitor
 </template>
 
 <script>
   export default {
-    name: 'Home',
+    name: 'Landing',
   }
 </script>
 
-<style lang="sass" src="./Home.sass" scoped></style>
+<style lang="sass" src="./styles.sass" scoped></style>
