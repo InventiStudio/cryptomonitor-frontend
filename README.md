@@ -1,4 +1,5 @@
-# cryptomonitor-frontend
+# CryptoMonitor Front-end
+**by [InventiStudio](https://inventi.studio)**
 
 #### Table of Contents
 - [Setup](#setup)
