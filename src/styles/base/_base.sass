@@ -1,0 +1,20 @@
+@import "~styles/vars/fonts"
+
+*
+  box-sizing: border-box
+  -webkit-font-smoothing: antialiased // sass-lint:disable-line no-vendor-prefixes
+  -moz-osx-font-smoothing: grayscale // sass-lint:disable-line no-vendor-prefixes
+
+  &::before,
+  &::after
+    box-sizing: inherit
+
+  &:focus
+    outline: none
+
+body
+  min-width: 320px
+  font-family: $ff-avenir
+
+img
+  max-width: 100%
