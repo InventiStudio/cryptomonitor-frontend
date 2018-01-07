@@ -3,7 +3,7 @@
     .container-fluid
       .row
         .col
-          h1.c-white CryptoMonitor
+          h1.c-white Graph
 </template>
 
 <script>

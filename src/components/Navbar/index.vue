@@ -11,8 +11,8 @@
         )
           span Toggle nav
         nav.navbar__nav(:class="{ 'navbar__nav--active a-fade-in': isNavOpen }")
-          h1.hidden TODO: Seo
-          ul.navbar__links
+          h1.d-none TODO: Seo
+          ul.navbar__links.list-reset
             router-link.navbar__link(
               :to="{ name: 'Monitor' }",
               :exact="true",

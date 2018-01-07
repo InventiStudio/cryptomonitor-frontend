@@ -1,5 +1,6 @@
 @import "~styles/vars/colors"
 @import "~styles/vars/other"
+@import "~styles/vars/breakpoints"
 
 .navbar
   position: fixed
@@ -12,16 +13,16 @@
   transition-duration: $transition-duration
   transition-property: transform, background-color, padding
 
-  // +breakpoint(700px up)
-  //   padding-top: 24px
-  //   padding-bottom: 24px
+  +media-breakpoint-up(md)
+    padding-top: 24px
+    padding-bottom: 24px
 
 .navbar--hidden:not(:hover)
   transform: translateY(-85%)
   background-color: $c-black
 
-  // +breakpoint(700px up)
-  //   transform: translateY(-90%)
+  +media-breakpoint-up(md)
+    transform: translateY(-90%)
 
 .navbar--filled
   background-color: $c-black
@@ -74,8 +75,8 @@
       transition: bottom $transition-duration, transform $transition-duration
       transition-delay: $transition-duration, 0s
 
-  // +breakpoint(700px up)
-  //   display: none
+  +media-breakpoint-up(md)
+    display: none
 
 .navbar__nav-button--active
   span
@@ -113,12 +114,12 @@
     content: ""
     opacity: 0.99
 
-  // +breakpoint(700px up)
-  //   position: static
-  //   display: inline-block
+  +media-breakpoint-up(md)
+    position: static
+    display: inline-block
 
-  //   &::before
-  //     content: none
+    &::before
+      content: none
 
 .navbar__nav--active
   display: block
@@ -138,11 +139,11 @@
   transform: translate(-50%, -50%)
   text-align: center
 
-  // +breakpoint(700px up)
-  //   position: static
-  //   display: flex
-  //   align-items: baseline
-  //   transform: none
+  +media-breakpoint-up(md)
+    position: static
+    display: flex
+    align-items: baseline
+    transform: none
 
 .navbar__link
   display: block
@@ -158,10 +159,10 @@
   &:not(.navbar__link--active):hover
     text-decoration: underline
 
-  // +breakpoint(700px up)
-  //   display: inline-block
-  //   margin-right: 24px
-  //   margin-bottom: 0
+  +media-breakpoint-up(md)
+    display: inline-block
+    margin-right: 24px
+    margin-bottom: 0
 
 .navbar__cta
   display: inline-block
