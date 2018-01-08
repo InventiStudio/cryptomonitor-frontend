@@ -1,0 +1,9 @@
+@import "~styles/vars/colors";
+
+@mixin bgcolor($bgcolor) {
+  background-color: $bgcolor;
+}
+
+.bg-black {
+  @include bgcolor($c-black);
+}
