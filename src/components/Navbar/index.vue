@@ -24,9 +24,13 @@
               active-class="navbar__cta--active",
             )
               span Sign up
+            button.o-btn(type="button", @click="logout")
+              span.c-white Logout
 </template>
 
 <script>
+  import { mapActions } from 'vuex'
+
   export default {
     data() {
       return {
@@ -37,6 +41,9 @@
       }
     },
     methods: {
+      ...mapActions({
+        logout: 'auth/logout',
+      }),
       getScrollPosition() {
         return window.scrollY || document.documentElement.scrollTop
       },
