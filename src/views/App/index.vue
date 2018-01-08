@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#app
+  div#app.app
     router-view
 </template>
 
@@ -27,3 +27,4 @@
 </script>
 
 <style lang="sass" src="styles/application.sass"></style>
+<style lang="sass" src="./styles.sass"></style>

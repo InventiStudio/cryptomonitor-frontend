@@ -1,6 +1,6 @@
 <template lang="pug">
   section.landing
-    .container-fluid
+    .container
       .row
         .col
           h1.c-white Graph

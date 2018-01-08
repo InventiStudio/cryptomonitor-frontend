@@ -11,14 +11,14 @@ const routes = [
     path: '/',
     name: 'Monitor',
     component(resolve) {
-      require(['src/views/Monitor/Monitor'], resolve)
+      require(['src/views/Monitor'], resolve)
     },
   },
   {
     path: '/sign-in',
     name: 'SignIn',
     component(resolve) {
-      require(['src/views/SignIn/SignIn'], resolve)
+      require(['src/views/SignIn'], resolve)
     },
   },
 ]
