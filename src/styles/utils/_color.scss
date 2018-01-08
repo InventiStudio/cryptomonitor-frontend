@@ -11,3 +11,7 @@
 .c-white {
   @include color($c-white);
 }
+
+.c-black {
+  @include color($c-black);
+}
