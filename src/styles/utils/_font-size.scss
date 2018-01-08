@@ -1,0 +1,8 @@
+@mixin fs($fs, $lh) {
+  font-size: #{$fs}px;
+  line-height: #{$lh}px;
+}
+
+.fs-16 {
+  @include fs(16, 24);
+}
