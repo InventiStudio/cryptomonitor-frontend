@@ -26,6 +26,7 @@ module.exports = {
   },
   // add your custom rules here
   rules: {
+    'consistent-return': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     // disallow reassignment of function parameters
