@@ -6,18 +6,7 @@
           .o-card
             .container
               .row
-                .col-12.col-md-6.pt-48.pb-56.px-32.text-center
-                  a(href="//inventi.studio/en/")
-                    img(src="~assets/inventistudio__logo.svg", alt="")
-                  h2.fs-24.c-white.mt-32.mb-8 Do you need developers?
-                  p.fs-15.c-white-60.m-0.
-                    We provide Vue.js front-end, Node.js back-end and UI/UX design services.
-                    Whether you’re enterprise, company or startup - we can certainly help you!
-                  div.d-block.mt-24
-                    a.o-btn.bg-black(href="//inventi.studio/en/estimate-project")
-                      span.fs-15.c-white Estimate project
-                    a.ml-16(href="mailto:hello@inventi.studio")
-                      span.fs-15.c-white or contact us!
+                InventiStudioAd.col-12.col-md-6(bgcolor="orange")
                 .col-12.col-md-6.pt-64.px-48
                   h2.fs-24.c-white.text-center.mb-32.mt-0 Sign in
                   form
@@ -39,25 +28,25 @@
                     )
                     small.o-form-error
                       span.fs-12.c-orange(v-show="!isPasswordValid") Oops! Password and/or email doesn't match!
-                  button.o-btn.o-btn--orange-gradient.mt-24(
+                  button.o-btn.o-btn--orange.mt-24(
                     type="button",
                     :disabled="!isFormValid",
                     @click="signIn",
                   )
                     span.fs-15.c-white Sign in
-                  router-link.ml-16(:to="{ name: 'Monitor' }")
+                  router-link.ml-16(:to="{ name: 'ResetPassword' }")
                     span.fs-15.c-white Forgotten password?
 </template>
 
 <script>
   import { required, email } from 'vuelidate/lib/validators'
   import { mapActions } from 'vuex'
-  import Navbar from 'components/Navbar'
+  import InventiStudioAd from 'components/InventiStudioAd'
 
   export default {
     name: 'SignIn',
     components: {
-      Navbar,
+      InventiStudioAd,
     },
     data() {
       return {
