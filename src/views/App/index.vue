@@ -1,5 +1,6 @@
 <template lang="pug">
   div#app.app
+    Navbar
     router-view
 </template>
 
@@ -7,9 +8,13 @@
   import { mapActions } from 'vuex'
   import ls from 'local-storage'
   import { STORAGE_AUTH_TOKEN } from 'src/constants'
+  import Navbar from 'components/Navbar'
 
   export default {
     name: 'App',
+    components: {
+      Navbar,
+    },
     methods: {
       ...mapActions({
         login: 'auth/login',
