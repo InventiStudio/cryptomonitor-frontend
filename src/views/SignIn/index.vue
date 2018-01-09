@@ -13,21 +13,23 @@
                     label.d-none E-mail address
                     input.o-input(
                       type="email",
-                      v-model="email",
+                      v-model.trim="email",
                       placeholder="Your email address",
                       :class="{ 'o-input--error': !isEmailValid }",
                     )
                     small.o-form-error
-                      span.fs-12.c-orange(v-show="!isEmailValid") Hm, that seems like a wrong e-mail..
+                      span.fs-12.c-orange(v-if="!$v.email.required && $v.signInForm.$dirty") We need your email!
+                      span.fs-12.c-orange(v-if="!$v.email.email") Hm, that seems like an invalid e-mail..
                     label.d-none Password
                     input.o-input.mt-16(
                       type="password",
-                      v-model="password",
+                      v-model.trim="password",
                       placeholder="Your pass****",
                       :class="{ 'o-input--error': !isPasswordValid }",
                     )
                     small.o-form-error
-                      span.fs-12.c-orange(v-show="!isPasswordValid") Oops! Password and/or email doesn't match!
+                      span.fs-12.c-orange(v-if="!$v.password.required && $v.signInForm.$dirty") Trying to sign-in without password?!
+                      //- span.fs-12.c-orange(v-if="Some API error") Oops! Password and/or email doesn't match!
                   button.o-btn.o-btn--orange.mt-24(
                     type="button",
                     :disabled="!isFormValid",
@@ -55,6 +57,7 @@
       }
     },
     computed: {
+      isEmailRequiredValid() { return !this.$v.email.required && this.$v.signInForm.$dirty },
       isEmailValid() { return !this.$v.email.$error },
       isPasswordValid() { return !this.$v.password.$error },
       isFormValid() { return this.isEmailValid && this.isPasswordValid },
