@@ -7,8 +7,8 @@
             .container
               .row
                 InventiStudioAd.col-12.col-md-6(bgcolor="orange")
-                .col-12.col-md-6.pt-64.px-48
-                  h2.fs-24.c-white.text-center.mb-32.mt-0 Forgotten password?
+                .col-12.col-md-6.pt-64.px-48.text-center
+                  h2.fs-24.c-white.mb-32.mt-0 Forgotten password?
                   form
                     label.d-none E-mail address
                     input.o-input(
@@ -18,9 +18,11 @@
                       :class="{ 'o-input--error': !isEmailValid }",
                     )
                     small.o-form-error
-                      span.fs-12.c-orange(v-if="!$v.email.required && $v.forgottenPasswordForm.$dirty") We need your email!
-                      span.fs-12.c-orange(v-if="!$v.email.email") Hm, that seems like an invalid e-mail..
-                  button.o-btn.o-btn--blue.mt-24(
+                      span.fs-12.c-orange(v-if="!$v.email.required && $v.forgottenPasswordForm.$dirty")
+                        | We need your email!
+                      span.fs-12.c-orange(v-if="!$v.email.email && $v.forgottenPasswordForm.$dirty")
+                        | Hm, that seems like an invalid e-mail..
+                  button.o-btn.o-btn--blue.mt-16(
                     type="button",
                     :disabled="!isFormValid",
                     @click="forgottenPassword()",
@@ -32,15 +34,19 @@
   import { required, email } from 'vuelidate/lib/validators'
   import InventiStudioAd from 'components/InventiStudioAd'
 
+  function getDefaltState() {
+    return {
+      email: '',
+    }
+  }
+
   export default {
     name: 'ForgottenPassword',
     components: {
       InventiStudioAd,
     },
     data() {
-      return {
-        email: '',
-      }
+      return getDefaltState()
     },
     computed: {
       isEmailValid() { return !this.$v.email.$error },
@@ -52,8 +58,10 @@
           if (this.$v.forgottenPasswordForm.$touch() ||
             this.$v.forgottenPasswordForm.$error) return null
           const { email } = this
-          alert(`Forgotten password!, ${JSON.stringify({ email })}`) // eslint-disable-line
           // api.post()
+          alert(`Forgotten password!, ${JSON.stringify({ email })}`) // eslint-disable-line
+          Object.assign(this.$data, getDefaltState())
+          this.$v.forgottenPasswordForm.$reset()
         } catch (err) {
           throw err
         }

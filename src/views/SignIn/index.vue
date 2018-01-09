@@ -7,8 +7,8 @@
             .container
               .row
                 InventiStudioAd.col-12.col-md-6(bgcolor="violet")
-                .col-12.col-md-6.pt-64.px-48
-                  h2.fs-24.c-white.text-center.mb-32.mt-0 Sign in
+                .col-12.col-md-6.pt-64.px-48.text-center
+                  h2.fs-24.c-white.mb-32.mt-0 Sign in
                   form
                     label.d-none E-mail address
                     input.o-input(
@@ -18,8 +18,10 @@
                       :class="{ 'o-input--error': !isEmailValid }",
                     )
                     small.o-form-error
-                      span.fs-12.c-orange(v-if="!$v.email.required && $v.signInForm.$dirty") We need your email!
-                      span.fs-12.c-orange(v-if="!$v.email.email") Hm, that seems like an invalid e-mail..
+                      span.fs-12.c-orange(v-if="!$v.email.required && $v.signInForm.$dirty")
+                        | We need your email!
+                      span.fs-12.c-orange(v-if="!$v.email.email && $v.signInForm.$dirty")
+                        | Hm, that seems like an invalid e-mail..
                     label.d-none Password
                     input.o-input.mt-8(
                       type="password",
@@ -28,14 +30,14 @@
                       :class="{ 'o-input--error': !isPasswordValid }",
                     )
                     small.o-form-error
-                      span.fs-12.c-orange(v-if="!$v.password.required && $v.signInForm.$dirty") Trying to sign-in without password?!
+                      span.fs-12.c-orange(v-if="!$v.password.required && $v.signInForm.$dirty") Trying to sign-in without password?
                       //- span.fs-12.c-orange(v-if="Some API error") Oops! Password and/or email doesn't match!
-                  button.o-btn.o-btn--orange.mt-24(
+                  button.o-btn.o-btn--orange.mt-16(
                     type="button",
                     :disabled="!isFormValid",
                     @click="signIn()",
                   )
-                    span.fs-15.c-white Sign in
+                    span.fs-15.c-white Sign me in
                   router-link.ml-16(:to="{ name: 'ForgottenPassword' }")
                     span.fs-15.c-white Forgotten password?
 </template>

@@ -7,8 +7,8 @@
             .container
               .row
                 InventiStudioAd.col-12.col-md-6(bgcolor="orange")
-                .col-12.col-md-6.pt-64.px-48
-                  h2.fs-24.c-white.text-center.mb-32.mt-0 Reset password
+                .col-12.col-md-6.pt-64.px-48.text-center
+                  h2.fs-24.c-white.mb-32.mt-0 Reset password
                   form
                     label.d-none Password
                     input.o-input.mt-8(
@@ -28,7 +28,7 @@
                     )
                     small.o-form-error
                       span.fs-12.c-orange(v-if="!$v.repeatPassword.sameAsPassword && $v.resetPasswordForm.$dirty") Oops! Passwords don't match!
-                  button.o-btn.o-btn--blue.mt-24(
+                  button.o-btn.o-btn--blue.mt-16(
                     type="button",
                     :disabled="!isFormValid",
                     @click="resetPassword()",

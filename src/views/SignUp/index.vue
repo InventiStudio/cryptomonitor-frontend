@@ -7,8 +7,8 @@
             .container
               .row
                 InventiStudioAd.col-12.col-md-6(bgcolor="blue")
-                .col-12.col-md-6.pt-64.px-48
-                  h2.fs-24.c-white.text-center.mb-32.mt-0 Sign up
+                .col-12.col-md-6.pt-64.pb-64.px-48.text-center
+                  h2.fs-24.c-white.mb-32.mt-0 Sign up
                   form
                     label.d-none E-mail address
                     input.o-input(
@@ -38,12 +38,12 @@
                     )
                     small.o-form-error
                       span.fs-12.c-orange(v-if="!$v.repeatPassword.sameAsPassword && $v.signUpForm.$dirty") Oops! Passwords don't match!
-                  button.o-btn.o-btn--violet.mt-24(
+                  button.o-btn.o-btn--violet.mt-16(
                     type="button",
                     :disabled="!isFormValid",
                     @click="signUp()",
                   )
-                    span.fs-15.c-white Sign up
+                    span.fs-15.c-white Sign me up
 </template>
 
 <script>
