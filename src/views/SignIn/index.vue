@@ -2,47 +2,51 @@
   main
     .container
       .row.justify-content-center
-        .col-12.col-md-8
+        .col-12.col-md-10
           .o-card
             .container
               .row
-                .col-12.col-md-6
-                  img(src="~assets/inventistudio__logo.svg", alt="")
-                  h2.c-white Do you need developers?
-                  p.c-white.
+                .col-12.col-md-6.pt-48.pb-56.px-32.text-center
+                  a(href="//inventi.studio/en/")
+                    img(src="~assets/inventistudio__logo.svg", alt="")
+                  h2.fs-24.c-white.mt-32.mb-8 Do you need developers?
+                  p.fs-15.c-white-60.m-0.
                     We provide Vue.js front-end, Node.js back-end and UI/UX design services.
                     Whether you’re enterprise, company or startup - we can certainly help you!
-                  a.o-btn.bg-black(href="//inventi.studio/en/estimate-project")
-                    span.fs-16.c-white Estimate project
-                  a.o-btn(href="mailto:hello@inventi.studio")
-                    span.fs-16.c-white or contact us!
-                .col-12.col-md-6
-                  h2.c-white Sign in
+                  div.d-block.mt-24
+                    a.o-btn.bg-black(href="//inventi.studio/en/estimate-project")
+                      span.fs-15.c-white Estimate project
+                    a.ml-16(href="mailto:hello@inventi.studio")
+                      span.fs-15.c-white or contact us!
+                .col-12.col-md-6.pt-64.px-48
+                  h2.fs-24.c-white.text-center.mb-32.mt-0 Sign in
                   form
-                    label Email
-                    input(
+                    label.d-none E-mail address
+                    input.o-input(
                       type="email",
                       v-model="email",
                       placeholder="Your email address",
-                      :class="{ '': !isEmailValid }",
+                      :class="{ 'o-input--error': !isEmailValid }",
                     )
-                    small
-                      span(v-show="!isEmailValid") TODO email error
-                    label Password
-                    input(
+                    small.o-form-error
+                      span.fs-12.c-orange(v-show="!isEmailValid") Hm, that seems like a wrong e-mail..
+                    label.d-none Password
+                    input.o-input.mt-16(
                       type="password",
                       v-model="password",
                       placeholder="Your pass****",
-                      :class="{ '': !isPasswordValid }",
+                      :class="{ 'o-input--error': !isPasswordValid }",
                     )
-                    small
-                      span(v-show="!isPasswordValid") TODO password error
-                  button.o-btn(
+                    small.o-form-error
+                      span.fs-12.c-orange(v-show="!isPasswordValid") Oops! Password and/or email doesn't match!
+                  button.o-btn.o-btn--orange-gradient.mt-24(
                     type="button",
                     :disabled="!isFormValid",
                     @click="signIn",
                   )
-                    span.fs-16.c-black Sign in
+                    span.fs-15.c-white Sign in
+                  router-link.ml-16(:to="{ name: 'Monitor' }")
+                    span.fs-15.c-white Forgotten password?
 </template>
 
 <script>

@@ -17,15 +17,16 @@
               :to="{ name: 'Monitor' }",
               :exact="true",
               active-class="navbar__link--active",
-            ) Monitor
+            )
+              span.fs-15.c-white Monitor
             router-link.navbar__cta(
               :to="{ name: 'Monitor' }",
               :exact="true",
               active-class="navbar__cta--active",
             )
-              span Sign up
+              span.fs-15 Sign up
             button.o-btn(type="button", @click="logout")
-              span.c-white Logout
+              span.fs-15.c-white Logout
 </template>
 
 <script>
