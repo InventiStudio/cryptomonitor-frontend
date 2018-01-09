@@ -9,6 +9,7 @@ Vue.use(Router)
 const routes = [
   {
     path: '/',
+    // TODO: Add guard when not logged-in
     name: 'Monitor',
     component(resolve) {
       require(['src/views/Monitor'], resolve)
@@ -19,6 +20,27 @@ const routes = [
     name: 'SignIn',
     component(resolve) {
       require(['src/views/SignIn'], resolve)
+    },
+  },
+  {
+    path: '/sign-up',
+    name: 'SignUp',
+    component(resolve) {
+      require(['src/views/SignUp'], resolve)
+    },
+  },
+  {
+    path: '/forgotten-password',
+    name: 'ForgottenPassword',
+    component(resolve) {
+      require(['src/views/ForgottenPassword'], resolve)
+    },
+  },
+  {
+    path: '/reset-password',
+    name: 'ResetPassword',
+    component(resolve) {
+      require(['src/views/ResetPassword'], resolve)
     },
   },
 ]
@@ -33,7 +55,6 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   const { isLoggedIn } = store.state.auth
   if (isLoggedIn && to.name === 'SignIn') return next({ name: 'Monitor' })
-  if (!isLoggedIn && to.name !== 'SignIn') return next({ name: 'SignIn' })
   return next()
 })
 
