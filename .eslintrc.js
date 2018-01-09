@@ -41,7 +41,8 @@ module.exports = {
     }],
     'no-shadow': ['error', {
       allow: [
-        'state' // for vuex state
+        'state', // for vuex state
+        'email' // for Vuelidate validation
       ]
     }],
     // don't require .vue extension when importing
