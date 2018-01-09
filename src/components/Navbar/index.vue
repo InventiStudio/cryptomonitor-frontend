@@ -13,30 +13,31 @@
         nav.navbar__nav(:class="{ 'navbar__nav--active a-fade-in': isNavOpen }")
           h1.d-none TODO: Seo
           ul.navbar__links.list-reset
-            router-link.navbar__link(
+            router-link.navbar__link.fs-15(
+              v-if="isLoggedIn",
               :to="{ name: 'Monitor' }",
               :exact="true",
               active-class="navbar__link--active",
-            )
-              span.fs-15.c-white Monitor
-            router-link.navbar__cta(
+            ) Monitor
+            router-link.navbar__link.fs-15(
+              v-if="!isLoggedIn",
+              :to="{ name: 'SignIn' }",
+              :exact="true",
+              active-class="navbar__link--active",
+            ) Sign in
+            router-link.o-btn.o-btn--violet.ml-md-24(
+              v-if="!isLoggedIn",
               :to="{ name: 'SignUp' }",
               :exact="true",
               active-class="navbar__cta--active",
             )
-              span.fs-15 Sign up
-            router-link.o-btn.o-btn--violet(
-              :to="{ name: 'SignIn' }",
-              :exact="true",
-              active-class="navbar__cta--active",
-            )
-              span.fs-15.c-white Sign in
-            button.o-btn(type="button", @click="logout")
+              span.fs-15.c-white Sign up
+            button.ml-md-24(v-if="isLoggedIn", type="button", @click="logout()")
               span.fs-15.c-white Logout
 </template>
 
 <script>
-  import { mapActions } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
 
   export default {
     name: 'Navbar',
@@ -47,6 +48,11 @@
         isNavbarFilled: false,
         scrollPosition: 0,
       }
+    },
+    computed: {
+      ...mapGetters({
+        isLoggedIn: 'auth/isLoggedIn',
+      }),
     },
     methods: {
       ...mapActions({
