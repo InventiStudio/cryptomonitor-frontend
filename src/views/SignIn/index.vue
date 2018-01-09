@@ -6,7 +6,7 @@
           .o-card
             .container
               .row
-                InventiStudioAd.col-12.col-md-6(bgcolor="orange")
+                InventiStudioAd.col-12.col-md-6(bgcolor="violet")
                 .col-12.col-md-6.pt-64.px-48
                   h2.fs-24.c-white.text-center.mb-32.mt-0 Sign in
                   form
@@ -21,7 +21,7 @@
                       span.fs-12.c-orange(v-if="!$v.email.required && $v.signInForm.$dirty") We need your email!
                       span.fs-12.c-orange(v-if="!$v.email.email") Hm, that seems like an invalid e-mail..
                     label.d-none Password
-                    input.o-input.mt-16(
+                    input.o-input.mt-8(
                       type="password",
                       v-model.trim="password",
                       placeholder="Your pass****",
@@ -33,10 +33,10 @@
                   button.o-btn.o-btn--orange.mt-24(
                     type="button",
                     :disabled="!isFormValid",
-                    @click="signIn",
+                    @click="signIn()",
                   )
                     span.fs-15.c-white Sign in
-                  router-link.ml-16(:to="{ name: 'ResetPassword' }")
+                  router-link.ml-16(:to="{ name: 'ForgottenPassword' }")
                     span.fs-15.c-white Forgotten password?
 </template>
 
@@ -57,7 +57,6 @@
       }
     },
     computed: {
-      isEmailRequiredValid() { return !this.$v.email.required && this.$v.signInForm.$dirty },
       isEmailValid() { return !this.$v.email.$error },
       isPasswordValid() { return !this.$v.password.$error },
       isFormValid() { return this.isEmailValid && this.isPasswordValid },

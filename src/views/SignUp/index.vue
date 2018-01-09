@@ -21,7 +21,7 @@
                       span.fs-12.c-orange(v-if="!$v.email.required && $v.signUpForm.$dirty") We need your email!
                       span.fs-12.c-orange(v-if="!$v.email.email && $v.signUpForm.$dirty") Hm, that seems like an invalid e-mail..
                     label.d-none Password
-                    input.o-input.mt-16(
+                    input.o-input.mt-8(
                       type="password",
                       v-model.trim="password",
                       placeholder="Your pass****",
@@ -30,7 +30,7 @@
                     small.o-form-error
                       span.fs-12.c-orange(v-if="!$v.password.required && $v.signUpForm.$dirty") Trying to sign-up without password?
                     label.d-none Repeat password
-                    input.o-input.mt-16(
+                    input.o-input.mt-8(
                       type="password",
                       v-model="repeatPassword",
                       placeholder="Repeat your pass****",
@@ -38,10 +38,10 @@
                     )
                     small.o-form-error
                       span.fs-12.c-orange(v-if="!$v.repeatPassword.sameAsPassword && $v.signUpForm.$dirty") Oops! Passwords don't match!
-                  button.o-btn.o-btn--blue.mt-24(
+                  button.o-btn.o-btn--violet.mt-24(
                     type="button",
                     :disabled="!isFormValid",
-                    @click="signUp",
+                    @click="signUp()",
                   )
                     span.fs-15.c-white Sign up
 </template>
@@ -66,7 +66,9 @@
       isEmailValid() { return !this.$v.email.$error },
       isPasswordValid() { return !this.$v.password.$error },
       isRepeatPasswordValid() { return !this.$v.repeatPassword.$error },
-      isFormValid() { return this.isEmailValid && this.isPasswordValid },
+      isFormValid() {
+        return this.isEmailValid && this.isPasswordValid && this.isRepeatPasswordValid
+      },
     },
     methods: {
       async signUp() {
