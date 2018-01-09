@@ -12,6 +12,14 @@
   @include color($c-white);
 }
 
+.c-white-60 {
+  @include color($c-white, 0.6);
+}
+
 .c-black {
   @include color($c-black);
+}
+
+.c-orange {
+  @include color($c-orange);
 }
