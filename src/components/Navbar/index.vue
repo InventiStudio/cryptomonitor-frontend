@@ -20,11 +20,17 @@
             )
               span.fs-15.c-white Monitor
             router-link.navbar__cta(
-              :to="{ name: 'Monitor' }",
+              :to="{ name: 'SignUp' }",
               :exact="true",
               active-class="navbar__cta--active",
             )
               span.fs-15 Sign up
+            router-link.o-btn.o-btn--violet(
+              :to="{ name: 'SignIn' }",
+              :exact="true",
+              active-class="navbar__cta--active",
+            )
+              span.fs-15.c-white Sign in
             button.o-btn(type="button", @click="logout")
               span.fs-15.c-white Logout
 </template>
@@ -33,6 +39,7 @@
   import { mapActions } from 'vuex'
 
   export default {
+    name: 'Navbar',
     data() {
       return {
         isNavOpen: false,
