@@ -10,7 +10,10 @@ function events(io) {
     console.log('Connected to socket server')
   })
   io.on('NEW_CURRENCY_VALUES', (values) => {
-    console.log(values)
+    console.log('NEW VALUES', values)
+  })
+  io.on('REMOVED_CURRENCY_IDS', (ids) => {
+    console.log('OUTDATED IDS (should be removed from store)', ids)
   })
 }
 
