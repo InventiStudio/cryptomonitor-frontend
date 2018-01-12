@@ -9,6 +9,9 @@ function events(io) {
   io.on('connect', () => {
     console.log('Connected to socket server')
   })
+  io.on('NEW_CURRENCY_VALUES', (values) => {
+    console.log(values)
+  })
 }
 
 let handler
