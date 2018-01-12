@@ -7,8 +7,16 @@
 </template>
 
 <script>
+  import socket from 'src/services/socket'
+
   export default {
     name: 'Landing',
+    mounted() {
+      socket.connect()
+    },
+    beforeDestroy() {
+      socket.disconnect()
+    },
   }
 </script>
 
