@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1439px" height="816px" viewBox="0 0 1439 816" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49 (51002) - http://www.bohemiancoding.com/sketch -->
+    <title>Land/Background</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="95.9922029%" y1="3.80937109%" x2="1.65218431%" y2="93.4786157%" id="linearGradient-1">
+            <stop stop-color="#F0C278" offset="0%"></stop>
+            <stop stop-color="#D55D5B" offset="49.868463%"></stop>
+            <stop stop-color="#BD4E8F" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Landing" transform="translate(0.000000, -878.000000)" fill="url(#linearGradient-1)">
+            <g id="Group-6" transform="translate(-1.000000, 593.000000)">
+                <g id="Land/Background" transform="translate(0.000000, 285.000000)">
+                    <rect id="Land/gradient" transform="translate(720.000000, 408.000000) scale(-1, 1) translate(-720.000000, -408.000000) " x="0" y="0" width="1440" height="816"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
