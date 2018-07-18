@@ -25,6 +25,12 @@
               :exact="true",
               active-class="navbar__link--active",
             ) Sign in
+            router-link.navbar__link.fs-15.ml-md-24(
+              v-if="isLoggedIn",
+              :to="{ name: 'Settings' }",
+              :exact="true",
+              active-class="navbar__link--active",
+              ) Settings
             router-link.o-btn.o-btn--violet.ml-md-24(
               v-if="!isLoggedIn",
               :to="{ name: 'SignUp' }",
