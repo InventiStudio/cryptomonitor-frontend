@@ -2,7 +2,13 @@
   .form
     .inline-block.mr-32(v-for="(label, i) in labels" :key="label")
       label.c-white(:for="label.toLowerCase()") {{ label }}
-      input(:type="infoType" :id="label.toLowerCase()" :name="label.toLowerCase()" v-model="values[i]" placeholder="loolo" )
+      input(
+        v-model="values[i]"
+        :type="infoType"
+        :id="label.toLowerCase()"
+        :name="label.toLowerCase()"
+        :placeholder="placeholders[i]"
+      )
     button.o-btn.o-btn--gray.c-black Update
 
 </template>
