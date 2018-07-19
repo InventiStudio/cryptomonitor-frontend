@@ -12,18 +12,24 @@
       .col-md-12
         SectionHeading(header="Change password" description="Your password should be at least 10 characters long")
         UpdateAccountInfoForm(infoType="password" :labels="passwordLabels")
+    .row.mt-48
+      .col-md-12
+        SectionHeading(header="Delete account" description="Warning! This cannot be undone!")
+        DeleteAccountForm
 </template>
 
 <script>
   import SectionHeading from './SectionHeading'
   import CurrencyTypeForm from './CurrencyTypeForm'
   import UpdateAccountInfoForm from './UpdateAccountInfoForm'
+  import DeleteAccountForm from './DeleteAccountForm'
 
   export default {
     components: {
       SectionHeading,
       CurrencyTypeForm,
       UpdateAccountInfoForm,
+      DeleteAccountForm,
     },
     computed: {
       currencies() {
