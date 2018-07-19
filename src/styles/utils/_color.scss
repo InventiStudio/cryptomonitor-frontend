@@ -27,6 +27,10 @@
   @include color($c-black);
 }
 
+.c-black-80 {
+  @include color($c-black, 0.8)
+}
+
 .c-orange {
   @include color($c-orange);
 }

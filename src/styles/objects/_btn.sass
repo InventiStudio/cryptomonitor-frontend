@@ -6,9 +6,8 @@
   text-decoration: none
   white-space: nowrap
   transition-duration: $transition-duration
-  transition-property: transform box-shadow background-color
+  transition-property: transform, box-shadow , background-color
   transition-timing-function: $transition-function
-
   &:disabled
     opacity: 0.6
 .o-btn--gray
@@ -24,3 +23,6 @@
   background-image: linear-gradient(120deg, #78b2f0 0%, #5b95d5 50%, #4e6ebd 100%)  // sass-lint:disable-line no-color-literals
 .o-btn--red
   background-image: linear-gradient(120deg, #FF5A57 0%, #FF6B68 100%)
+
+.o-btn--black
+  background-image: linear-gradient(120deg, $c-black 0%, lighten($c-black, 10%) 100%)
