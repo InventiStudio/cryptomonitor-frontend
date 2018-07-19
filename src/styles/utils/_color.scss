@@ -8,6 +8,13 @@
   }
 }
 
+.c-white-80 {
+  @include color($c-white, 0.8)
+}
+.c-white-90 {
+  @include color($c-white, 0.9)
+}
+
 .c-white {
   @include color($c-white);
 }

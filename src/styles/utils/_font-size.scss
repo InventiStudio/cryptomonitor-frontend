@@ -16,5 +16,5 @@
 }
 
 .fs-32 {
-  @include fs(nth($fs-32, 1), nth($fs-12, 2));
+  @include fs(nth($fs-32, 1), nth($fs-32, 2));
 }

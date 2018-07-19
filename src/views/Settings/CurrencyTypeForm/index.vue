@@ -1,32 +1,30 @@
 <template lang="pug">
   section
     form
-      input(type="checkbox" value="Bitcoin" id="bitcoin" v-model="chosenCryptoCurrency")
-      label(for="bitcoin") Bitcoin
-      input(type="checkbox" value="Bitcash" id="bitcash" v-model="chosenCryptoCurrency")
-      label(for="bitcash") Bitcash
-      input(type="checkbox" id="etherium" value="Etherium" v-model="chosenCryptoCurrency")
-      label(for="etherium") Etherium
-      input(type="checkbox" id="littleCoin" value="LittleCoin" v-model="chosenCryptoCurrency")
-      label(for="littleCoin") LittleCoin
+      .inline-block(v-for="cryptoCurrency in cryptoCurrencies")
+        input(type="checkbox" :value="cryptoCurrency.value" :id="cryptoCurrency.value.toLowerCase()" v-model="selectedCryptoCurrency")
+        label(:for="cryptoCurrency.value.toLowerCase()") {{ cryptoCurrency.value }}
       select(v-model="selectedCurrency")
-        option(selected="true" value="USD") USD
-        option(value="PLN") PLN
-        option(value="GBP") GBP
-        option(value="EUR") EUR
+        option(v-for="currency in currencies" :selected="currency.initiallySelected" :value="currency.value") {{ currency.value}}
 </template>
 
 <script>
   export default {
+    props: {
+      currencies: Array,
+      cryptoCurrencies: Array,
+    },
     data() {
       return {
-        chosenCryptoCurrency: [],
-        selectedCurrency: 'USD',
+        selectedCryptoCurrency: this.cryptoCurrencies.filter(currency => currency.initiallyChecked)
+                                                      .map(currency => currency.value),
+        selectedCurrency: this.currencies.filter(currency => currency.initiallySelected)[0].value,
       }
     },
   }
 </script>
 
 <style lang="sass" scoped>
-
+  .inline-block
+    display: inline-block
 </style>
