@@ -16,6 +16,13 @@ const routes = [
     },
   },
   {
+    path: '/settings',
+    name: 'Settings',
+    component(resolve) {
+      require(['src/views/Settings'], resolve)
+    },
+  },
+  {
     path: '/sign-in',
     name: 'SignIn',
     component(resolve) {
