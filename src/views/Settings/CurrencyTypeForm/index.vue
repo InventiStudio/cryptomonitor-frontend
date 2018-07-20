@@ -3,7 +3,7 @@
     form
       .inline-block(v-for="cryptoCurrency in cryptoCurrencies")
         input(type="checkbox" :value="cryptoCurrency.value" :id="cryptoCurrency.value.toLowerCase()" v-model="selectedCryptoCurrency")
-        label(:for="cryptoCurrency.value.toLowerCase()") {{ cryptoCurrency.value }}
+        label.c-white(:for="cryptoCurrency.value.toLowerCase()") {{ cryptoCurrency.value }}
       select(v-model="selectedCurrency")
         option(v-for="currency in currencies" :selected="currency.initiallySelected" :value="currency.value") {{ currency.value}}
 </template>
