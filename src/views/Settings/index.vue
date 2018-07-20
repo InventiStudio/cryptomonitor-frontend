@@ -7,7 +7,11 @@
     .row.mt-48
       .col-md-12
         SectionHeading(header="Change e-mail address" description="Don't worry. We won't spam your inbox")
-        UpdateAccountInfoForm(infoType="text" :labels="emailLabels" :initialValue="accountInfo.email" :placeholders="emailPlaceholders")
+        UpdateAccountInfoForm(infoType="email" :labels="emailLabels" :initialValue="accountInfo.email" :placeholders="emailPlaceholders")
+    .row.mt-48
+      .col-md-12
+        SectionHeading(header="Change password" description="Your password should be at least 10 characters long")
+        UpdateAccountInfoForm(infoType="password" :labels="passwordLabels")
 </template>
 
 <script>
@@ -46,12 +50,12 @@
         ]
       },
       emailPlaceholders() {
-        return ['some@email.com','some@email.com','some@email.com']
+        return ['some@email.com', 'some@email.com', 'some@email.com']
       },
       accountInfo() {
         return {
           email: 'john.doe@mail.com',
-          password: 'password',
+          password: '',
         }
       },
       passwordLabels() {
