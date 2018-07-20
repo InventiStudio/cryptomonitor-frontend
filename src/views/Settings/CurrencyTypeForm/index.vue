@@ -2,7 +2,7 @@
   section
     form
       .inline-block(v-for="cryptoCurrency in cryptoCurrencies")
-        input(type="checkbox" :value="cryptoCurrency.value" :id="cryptoCurrency.value.toLowerCase()" v-model="selectedCryptoCurrency")
+        input(type="checkbox" :value="cryptoCurrency.value" :id="cryptoCurrency.value.toLowerCase()" @change="updateCryptoCurrency" v-model="selectedCryptoCurrency")
         label.c-white(:for="cryptoCurrency.value.toLowerCase()") {{ cryptoCurrency.value }}
       select(v-model="selectedCurrency")
         option(v-for="currency in currencies" :selected="currency.initiallySelected" :value="currency.value") {{ currency.value}}
@@ -20,6 +20,16 @@
                                                       .map(currency => currency.value),
         selectedCurrency: this.currencies.filter(currency => currency.initiallySelected)[0].value,
       }
+    },
+    methods: {
+      async updateCryptoCurrency() {
+        await new Promise((resolve, reject) => {
+          setTimeout(() => {
+            resolve(alert('crypto currencies have been updated'))
+          },1000)
+        });
+        console.log('after updated')
+      },
     },
   }
 </script>
