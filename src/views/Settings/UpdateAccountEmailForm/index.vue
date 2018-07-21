@@ -1,38 +1,61 @@
 <template lang="pug">
-  .form
-    .inline-block.mr-32
-      LabeledInput(:error="!isOldEmailValid" :type="infoType" label-pos="top"  :label="labels[0]" v-model="oldEmail")
-    .inline-block.mr-32
-      LabeledInput(:error="$v.newEmail.$dirty && !isNewEmailValid" error-msg="Invalid email" :type="infoType" label-pos="top" :label="labels[1]" v-model="$v.newEmail.$model" )
-    .inline-block.mr-32
-      LabeledInput(
-      v-model="repeatedEmail"
-      :type="infoType"
-      :error="$v.changeEmailForm.$dirty && !isRepeatedEmailValid"
-      error-msg="Oops! emails don't match!"
-      :label="labels[2]"
-      label-pos="top"
-      )
-    button.o-btn.o-btn--gray.c-black(@click="updateAccount" :disabled="!isFormValid") Update
+  form
+    .row.align-items-center
+      .col-md-3
+        LabeledInput(
+          v-model="$v.oldEmail.$model"
+          :error="!isOldEmailValid"
+          type="email"
+          label-pos="top"
+          label="Old email address"
+        )
+        small.o-form-error
+          span.fs-12.c-orange(v-if="$v.oldEmail.$dirty && !$v.oldEmail.email") Invalid email
+          span.fs-12.c-orange(v-if="$v.oldEmail.$dirty && !$v.oldEmail.required") This field is required
+      .col-md-3
+        LabeledInput(
+          v-model="$v.newEmail.$model"
+          :error="!isNewEmailValid"
+          type="email"
+          label-pos="top"
+          label="New e-mail address"
+        )
+        small.o-form-error
+          span.fs-12.c-orange(v-if="$v.newEmail.$dirty && !$v.newEmail.email") Invalid email
+          span.fs-12.c-orange(v-if="$v.newEmail.$dirty && !$v.newEmail.required") This field is required
+      .col.md-4
+        LabeledInput(
+          v-model="$v.repeatedEmail.$model"
+          type="email"
+          :error="$v.changeEmailForm.$dirty && !isRepeatedEmailValid"
+          label="Repeat new e-mail address"
+          label-pos="top"
+        )
+        small.o-form-error
+          span.fs-12.c-orange(v-if="!$v.repeatedEmail.sameAsEmail && $v.changeEmailForm.$dirty") Oops! emails don't match!
+      .col-md-2
+        button.o-btn.o-btn--gray.c-black(
+          @click.prevent="updateAccount"
+          :disabled="!isFormValid"
+          :class="{'o-btn--orange': isFormValid}"
+        ) Update
 
 </template>
 
 <script>
-  import {required, email, sameAs} from 'vuelidate/lib/validators'
+  import { required, email, sameAs } from 'vuelidate/lib/validators'
   import LabeledInput from '../../../components/LabeledInput'
 
   export default {
     props: {
-      infoType: String,
-      labels: Array,
-      initialValue: String,
+      initialEmail: { type: String, default: '' },
     },
     components: {
       LabeledInput,
     },
     data() {
       return {
-        oldEmail: this.initialValue,
+        oldEmail: this.initialEmail,
         newEmail: '',
         repeatedEmail: '',
       }
@@ -59,6 +82,7 @@
         if (this.$v.changeEmailForm.$touch() || !this.isFormValid) {
           return null
         }
+        alert('You have updated an email!')
       },
     },
     validations: {

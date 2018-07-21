@@ -1,14 +1,16 @@
 <template lang="pug">
   section
     form
-      .inline-block(v-for="cryptoCurrency in cryptoCurrencies")
-        input(type="checkbox" :value="cryptoCurrency.value" :id="cryptoCurrency.value.toLowerCase()" v-model="selectedCryptoCurrency")
-        label.c-white(:for="cryptoCurrency.value.toLowerCase()") {{ cryptoCurrency.value }}
-      select(v-model="selectedCurrency")
-        option(v-for="currency in currencies" :selected="currency.initiallySelected" :value="currency.value") {{ currency.value}}
+      .row
+        .col-md-2(v-for="cryptoCurrency in cryptoCurrencies")
+          LabeledInput(d-type="inline-block" :checked="cryptoCurrency.initiallyChecked" :label="cryptoCurrency.value" labelPos="right" type="checkbox" :value="cryptoCurrency.value" v-model="selectedCryptoCurrency")
+        select(v-model="selectedCurrency")
+          option(v-for="currency in currencies" :selected="currency.initiallySelected" :value="currency.value") {{ currency.value}}
 </template>
 
 <script>
+  import LabeledInput from '../../../components/LabeledInput'
+
   export default {
     props: {
       currencies: Array,
@@ -20,6 +22,9 @@
                                                       .map(currency => currency.value),
         selectedCurrency: this.currencies.filter(currency => currency.initiallySelected)[0].value,
       }
+    },
+    components: {
+      LabeledInput,
     },
   }
 </script>
